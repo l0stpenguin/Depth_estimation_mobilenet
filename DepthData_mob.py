@@ -37,7 +37,7 @@ class DepthDataset(Dataset):
         img_name = os.path.join(self.root_dir,sample[0])
         image = (Image.open(img_name))
         depth_name = os.path.join(self.root_dir,sample[1])
-        depth =Image.open(depth_name).convert('L')
+        depth =(Image.open(depth_name))
 #         depth = depth[..., np.newaxis]
         sample1={'image': image, 'depth': depth}
 
