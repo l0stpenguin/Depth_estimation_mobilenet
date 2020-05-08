@@ -86,7 +86,7 @@ class ToTensor(object):
     def __call__(self, sample):
         image, depth = sample['image'], sample['depth']
         
-
+        image = image.resize((640, 480))
         image = self.to_tensor(image)
 
         depth = depth.resize((320, 240))
