@@ -102,7 +102,6 @@ class ToTensor(object):
         return {'image': image, 'depth': depth}
 
     def to_tensor(self, pic):
-        pic = pic.resize((320, 240))
         pic = np.array(pic)
         if not (_is_numpy_image(pic) or _is_pil_image(pic)):
                 raise TypeError(  'pic should be PIL Image or ndarray. Got {}'.format(type(pic)))
