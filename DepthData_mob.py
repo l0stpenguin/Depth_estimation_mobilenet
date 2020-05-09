@@ -37,7 +37,11 @@ class DepthDataset(Dataset):
         img_name = os.path.join(self.root_dir,sample[0])
         image = (Image.open(img_name))
         depth_name = os.path.join(self.root_dir,sample[1])
-        depth =(Image.open(depth_name))
+        depth = (Image.open(depth_name))
+        #convert it to 8 bit since some png were not displaying
+        if np.array(depth).dtype != np.int8:
+            array = np.uint8(np.array(depth) / 256)
+            depth = Image.fromarray(array)
 #         depth = depth[..., np.newaxis]
         sample1={'image': image, 'depth': depth}
 
